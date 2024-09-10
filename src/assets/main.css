@@ -1,0 +1,10 @@
+@import './base.css';
+
+#app {
+  padding: 2rem;
+  font-weight: normal;
+}
+
+.el-card__body {
+  padding-right: 4px;
+}
