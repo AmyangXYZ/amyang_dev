@@ -15,7 +15,10 @@
           <span class="directory">~</span>
           <span class="time">[{{ message.timestamp }}]</span>
         </div>
-        <div class="command">{{ zhiyin }} {{ message.text }}</div>
+        <div class="command">
+          <span @click.stop="playNiganma" class="zhiyin">{{ zhiyin }}</span>
+          <span class="message-text">{{ message.text }}</span>
+        </div>
         <div class="result">{{ message.result }}</div>
       </div>
       <div class="command-line">
@@ -29,7 +32,7 @@
         </div>
 
         <div class="command">
-          {{ zhiyin }}
+          <span @click.stop="playNiganma" class="zhiyin">{{ zhiyin }}</span>
           <span>{{ userInput.slice(0, cursorPosition) }}</span>
           <span class="cursor-container">
             <span
@@ -278,6 +281,12 @@ const simulateTypingCommand = (text: string) => {
     index++
   }, 200)
 }
+
+const audio = new Audio('/niganma.mp3')
+
+const playNiganma = () => {
+  audio.play()
+}
 </script>
 
 <style scoped>
@@ -352,6 +361,10 @@ const simulateTypingCommand = (text: string) => {
   margin-bottom: 0em;
 }
 
+.zhiyin {
+  cursor: pointer;
+  z-index: 999;
+}
 .user {
   color: #00ff00;
 }
@@ -428,5 +441,17 @@ const simulateTypingCommand = (text: string) => {
 .cursor-active {
   border: 0px solid #fff;
   background-color: rgba(255, 255, 255, 1);
+}
+
+.command span {
+  cursor: pointer;
+}
+
+.message-text {
+  cursor: default;
+}
+
+.command > span:not(.zhiyin) {
+  cursor: default;
 }
 </style>
