@@ -11,3 +11,10 @@
     </g>
   </svg>
 </template>
+
+<style scoped>
+svg:hover {
+  transform: scale(1.1);
+  z-index: 1001;
+}
+</style>

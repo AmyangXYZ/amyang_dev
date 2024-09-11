@@ -1,0 +1,71 @@
+<template>
+  <el-icon size="108" color="red" class="rocket">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 640 512"
+      :class="{ 'launch-animation': shouldLaunch }"
+    >
+      <path
+        d="M32 432C32 458.51 53.49 480 80 480H96V384H32V432ZM160 160H416C288 128 192 32 128 32V128C145.674 128 160 142.326 160 160ZM32 80V128H96V32H80C53.49 32 32 53.49 32 80ZM128 384V480C192 480 288 384 416 352H160C160 369.672 145.674 384 128 384Z"
+        class="fa-secondary"
+      />
+      <path
+        d="M576.834 192.332C533 171.832 474.334 160 416 160H160C160 142.326 145.674 128 128 128H32C14.328 128 0 142.326 0 160V224C0 241.672 0 352 0 352C0 369.672 14.328 384 32 384H128C145.674 384 160 369.672 160 352H416C474.334 352 533 340.166 576.834 319.666C616.334 301.166 640 277.332 640 256C640 234.666 616.334 210.832 576.834 192.332ZM481.969 306.072C476.492 306.072 471.953 301.535 471.953 296.059V215.941C471.953 210.465 476.492 205.926 481.969 205.926C521.871 205.926 522.027 306.072 481.969 306.072Z"
+        class="fa-primary"
+      />
+    </svg>
+  </el-icon>
+</template>
+
+<script setup lang="ts">
+import { ref, watch } from 'vue'
+import { LaunchSignal } from './states'
+
+const shouldLaunch = ref(false)
+
+watch(LaunchSignal, (newValue) => {
+  if (newValue) {
+    shouldLaunch.value = true
+    setTimeout(() => {
+      shouldLaunch.value = false
+      LaunchSignal.value = false
+    }, 4000) // Reset after animation duration
+  }
+})
+</script>
+
+<style scoped>
+.fa-secondary {
+  opacity: 0.4;
+}
+
+.rocket {
+  rotate: -90deg;
+}
+
+.launch-animation {
+  animation: launch 4s ease-in-out;
+}
+
+@keyframes launch {
+  0%,
+  100% {
+    transform: translateX(0vh);
+  }
+  25% {
+    transform: translateX(180vh);
+  }
+  46% {
+    transform: translateX(180vh) scale(0);
+  }
+  47% {
+    transform: translateX(-180vh) scale(0);
+  }
+  48% {
+    transform: translateX(-180vh) scale(1);
+  }
+  70% {
+    transform: translateX(0vh);
+  }
+}
+</style>
