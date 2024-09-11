@@ -34,6 +34,11 @@
           <Mouse />
         </el-icon>
       </el-col>
+      <el-col :span="6" align="right">
+        <el-icon size="48" @click="openMMD" id="mmd" color="orange">
+          <IconChild />
+        </el-icon>
+      </el-col>
     </el-row>
   </el-card>
 </template>
@@ -43,6 +48,7 @@ import IconKeyboard from '@/components/icons/IconKeyboard.vue'
 import IconCat from '@/components/icons/IconCat.vue'
 import IconGraduation from '@/components/icons/IconGraduation.vue'
 import IconRouter from '@/components/icons/IconRouter.vue'
+import IconChild from '@/components/icons/IconChild.vue'
 
 const openScholar = () => {
   window.open(
@@ -53,6 +59,10 @@ const openScholar = () => {
 
 const openPaperPi = () => {
   window.open('https://github.com/AmyangXYZ/PaperPi', '_blank')
+}
+
+const openMMD = () => {
+  window.open('https://github.com/AmyangXYZ/AniMate', '_blank')
 }
 </script>
 
@@ -102,7 +112,14 @@ const openPaperPi = () => {
 .bottom-row {
   margin-top: -90px;
 }
-.el-card__body {
-  padding: 0px;
+
+#mmd {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  margin-top: 80px;
+}
+
+#mmd:hover {
+  transform: scale(1.1);
 }
 </style>
