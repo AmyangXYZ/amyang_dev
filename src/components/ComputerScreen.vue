@@ -16,7 +16,7 @@
           <span class="time">[{{ message.timestamp }}]</span>
         </div>
         <div class="command">
-          <span @click.stop="playNiganma" class="zhiyin">{{ zhiyin }}</span>
+          <span @click.stop="playNiganma" class="zhiyin">{{ zhiyin }}&nbsp;</span>
           <span class="message-text">{{ message.text }}</span>
         </div>
         <div class="result">{{ message.result }}</div>
@@ -32,7 +32,7 @@
         </div>
 
         <div class="command">
-          <span @click.stop="playNiganma" class="zhiyin">{{ zhiyin }}</span>
+          <span @click.stop="playNiganma" class="zhiyin">{{ zhiyin }}&nbsp;</span>
           <span>{{ userInput.slice(0, cursorPosition) }}</span>
           <span class="cursor-container">
             <span
@@ -286,6 +286,9 @@ const audio = new Audio('/niganma.mp3')
 
 const playNiganma = () => {
   audio.play()
+  setTimeout(() => {
+    window.open('https://github.com/AmyangXYZ/zhiyin-zsh-theme', '_blank')
+  }, 1000)
 }
 </script>
 
@@ -294,7 +297,7 @@ const playNiganma = () => {
   text-align: left;
   color: #fff;
   width: 60%;
-  background-color: #1e1e43;
+  background-color: #18222c;
   border: 12px solid #a8dadc;
   border-radius: 4px;
   margin-top: 40px;
@@ -364,6 +367,10 @@ const playNiganma = () => {
 .zhiyin {
   cursor: pointer;
   z-index: 999;
+  transition: transform 0.2s ease-in-out;
+}
+.zhiyin:hover {
+  transform: scale(1.7);
 }
 .user {
   color: #00ff00;
