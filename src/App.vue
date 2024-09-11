@@ -13,7 +13,7 @@ import IconRocket from './components/icons/IconRocket.vue'
         <IconGithub />
       </el-icon>
     </a>
-    <el-icon size="256" color="#6b6d71" style="position: absolute; right: 3%; top: 20%">
+    <el-icon size="256" color="#6b6d71" style="position: absolute; right: 3%; top: 15%">
       <IconNetwork />
     </el-icon>
     <el-icon size="256" color="purple" style="position: absolute; left: 3%; bottom: 20%">

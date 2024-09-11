@@ -209,6 +209,7 @@ const submitCommand = async () => {
   currentResult.value = null
   userInput.value = ''
   cursorPosition.value = 0
+  currentTime.value = new Date().toLocaleTimeString('en-US', { hour12: false })
 }
 
 const getRandomResponse = (responses: string[]): string => {
@@ -262,9 +263,7 @@ const getResult = async (command: string) => {
 }
 
 const addMessage = (text: string) => {
-  const now = new Date()
-  const timestamp = now.toLocaleTimeString('en-US', { hour12: false })
-  const msg = { text, timestamp, result: currentResult.value || '' }
+  const msg = { text, timestamp: currentTime.value, result: currentResult.value || '' }
   messages.value.push(msg)
 }
 
