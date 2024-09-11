@@ -278,16 +278,14 @@ const simulateTypingCommand = (text: string) => {
     userInput.value += text[index]
     cursorPosition.value = userInput.value.length
     index++
-  }, 200)
+  }, 150)
 }
 
-const audio = new Audio('/niganma.mp3')
+// const audio = new Audio('/niganma.mp3')
 
 const playNiganma = () => {
-  audio.play()
-  setTimeout(() => {
-    window.open('https://github.com/AmyangXYZ/zhiyin-zsh-theme', '_blank')
-  }, 1000)
+  // audio.play()
+  window.open('https://github.com/AmyangXYZ/zhiyin-zsh-theme', '_blank')
 }
 </script>
 
