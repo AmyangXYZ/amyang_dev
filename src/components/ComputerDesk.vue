@@ -1,7 +1,7 @@
 <template>
   <el-card class="desk">
     <el-row align="middle" class="top-row" justify="space-around">
-      <el-col :span="6" align="center">
+      <el-col :span="8" align="center">
         <a
           href="https://scholar.google.com/citations?hl=en&user=SJlfXTwAAAAJ&view_op=list_works&sortby=pubdate"
           target="_blank"
@@ -11,9 +11,9 @@
           </el-icon>
         </a>
       </el-col>
-      <el-col :span="10" align="right">
+      <el-col :span="9" align="right">
         <a href="https://github.com/AmyangXYZ/PaperPi" target="_blank">
-          <el-icon size="56" id="paper-pi">
+          <el-icon size="72" id="paper-pi">
             <IconCat />
           </el-icon>
         </a>
@@ -26,7 +26,7 @@
     </el-row>
 
     <el-row align="middle" class="bottom-row">
-      <el-col :span="2" align="center" style="margin-top: -60px">
+      <el-col :span="2" align="center" style="margin-top: -80px">
         <IconShuttle /><br />
         <IconStopwatch style="margin-top: 10px" />
       </el-col>
@@ -56,7 +56,6 @@ import IconGraduation from '@/components/icons/IconGraduation.vue'
 import IconRouter from '@/components/icons/IconRouter.vue'
 import IconChild from '@/components/icons/IconChild.vue'
 import { MilkTea } from '@element-plus/icons-vue'
-import IconStopwatch from './icons/IconStopwatch.vue'
 import IconShuttle from './icons/IconShuttle.vue'
 </script>
 
