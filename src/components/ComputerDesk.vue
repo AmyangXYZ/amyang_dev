@@ -35,17 +35,10 @@
           <MilkTea />
         </el-icon>
       </el-col>
-      <el-col :span="6" align="center">
-        <el-icon size="128">
-          <IconKeyboard />
-        </el-icon>
+      <el-col :span="8" align="center">
+        <IconKeyboard />
       </el-col>
-      <el-col :span="2" align="left">
-        <el-icon size="48">
-          <Mouse />
-        </el-icon>
-      </el-col>
-      <el-col :span="6" align="right">
+      <el-col :span="7" align="right">
         <a href="https://github.com/AmyangXYZ/AniMate" target="_blank">
           <el-icon size="48" id="mmd" color="orange">
             <IconChild />
@@ -62,7 +55,7 @@ import IconCat from '@/components/icons/IconCat.vue'
 import IconGraduation from '@/components/icons/IconGraduation.vue'
 import IconRouter from '@/components/icons/IconRouter.vue'
 import IconChild from '@/components/icons/IconChild.vue'
-import { Mouse, MilkTea } from '@element-plus/icons-vue'
+import { MilkTea } from '@element-plus/icons-vue'
 import IconStopwatch from './icons/IconStopwatch.vue'
 import IconShuttle from './icons/IconShuttle.vue'
 </script>
@@ -111,7 +104,7 @@ import IconShuttle from './icons/IconShuttle.vue'
 }
 
 .bottom-row {
-  margin-top: -90px;
+  margin-top: -80px;
 }
 
 #mmd {

@@ -4,8 +4,8 @@
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       class="stopwatch"
-      :class="{ shake: isShaking }"
-      @click="startCountdown"
+      :class="{ shake: isShaking, clicked: isClicked }"
+      @click="handleClick"
     >
       <!-- Stopwatch body -->
       <path
@@ -34,6 +34,7 @@ import { LaunchSignal } from './states'
 
 const countdown = ref(5)
 const isShaking = ref(false)
+const isClicked = ref(false)
 let intervalId: number | null = null
 
 const startCountdown = () => {
@@ -46,6 +47,14 @@ const startCountdown = () => {
       LaunchSignal.value = true
     }
   }, 1000)
+}
+
+const handleClick = () => {
+  isClicked.value = true
+  startCountdown()
+  setTimeout(() => {
+    isClicked.value = false
+  }, 100)
 }
 
 watch(isShaking, (newValue) => {
@@ -61,44 +70,13 @@ watch(isShaking, (newValue) => {
 <style scoped>
 .stopwatch {
   cursor: pointer;
+  transition: transform 0.2s;
 }
 .stopwatch:hover {
   transform: scale(1.2);
 }
-@keyframes shake {
-  0% {
-    transform: translate(1px, 1px) rotate(0deg);
-  }
-  10% {
-    transform: translate(-1px, -2px) rotate(-1deg);
-  }
-  20% {
-    transform: translate(-3px, 0px) rotate(1deg);
-  }
-  30% {
-    transform: translate(3px, 2px) rotate(0deg);
-  }
-  40% {
-    transform: translate(1px, -1px) rotate(1deg);
-  }
-  50% {
-    transform: translate(-1px, 2px) rotate(-1deg);
-  }
-  60% {
-    transform: translate(-3px, 1px) rotate(0deg);
-  }
-  70% {
-    transform: translate(3px, 1px) rotate(-1deg);
-  }
-  80% {
-    transform: translate(-1px, -1px) rotate(1deg);
-  }
-  90% {
-    transform: translate(1px, 2px) rotate(0deg);
-  }
-  100% {
-    transform: translate(1px, -2px) rotate(-1deg);
-  }
+.stopwatch.clicked {
+  transform: scale(0.9);
 }
 
 .shake {
