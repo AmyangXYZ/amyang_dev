@@ -39,7 +39,7 @@
         <IconKeyboard />
       </el-col>
       <el-col :span="7" align="right">
-        <a href="https://aether-gazer.amyang.dev" target="_blank">
+        <a href="https://mikapo.amyang.dev" target="_blank">
           <el-icon size="48" id="mmd" color="orange">
             <IconChild />
           </el-icon>
